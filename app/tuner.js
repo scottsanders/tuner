@@ -1,19 +1,19 @@
-const Tuner = function(a4) {
-  this.middleA = a4 || 440
+const Tuner = function() {
+  this.middleA = 440
   this.semitone = 69
   this.bufferSize = 4096
   this.noteStrings = [
     'C',
-    'C♯',
+    'C#',
     'D',
-    'D♯',
+    'D#',
     'E',
     'F',
-    'F♯',
+    'F#',
     'G',
-    'G♯',
+    'G#',
     'A',
-    'A♯',
+    'A#',
     'B'
   ]
 
@@ -59,6 +59,13 @@ Tuner.prototype.startRecord = function () {
   navigator.mediaDevices
     .getUserMedia({ audio: true })
     .then(function(stream) {
+      
+      document.getElementById( 'switch_label' ).style.opacity = '0';
+      document.body.classList.add("mic-enabled");
+      setTimeout(function(){
+        document.getElementById( 'switch_label' ).style.display = 'none';
+      },3000);
+
       self.audioContext.createMediaStreamSource(stream).connect(self.analyser)
       self.analyser.connect(self.scriptProcessor)
       self.scriptProcessor.connect(self.audioContext.destination)
@@ -94,8 +101,8 @@ Tuner.prototype.init = function() {
 
   const self = this
 
-  Aubio().then(function(aubio) {
-    self.pitchDetector = new aubio.Pitch(
+  Audio().then(function(audio) {
+    self.pitchDetector = new audio.Pitch(
       'default',
       self.bufferSize,
       1,

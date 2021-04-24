@@ -3,25 +3,253 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-  <title>Online Tuner</title>
+  <title>Free Online Tuner with Microphone</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<canvas class="frequency-bars"></canvas>
+<body class="">
+
+<input type="checkbox" id="switch" /><label for="switch" id="switch_label">Toggle</label>
+
 <div class="meter">
   <div class="meter-dot"></div>
   <div class="meter-pointer"></div>
 </div>
 <div class="notes">
   <div class="notes-list"></div>
-  <div class="frequency"> <span>Hz</span></div>
 </div>
-<div class="a4">A<sub>4</sub> = <span>440</span> Hz</div>
+
+<div class="note-leds leds green">
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+  <span class="led"></span>
+
+  
+</div>
+
+<div class="scale-leds">
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds green">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds middle green">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds green">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+  <div class="leds red">
+    <span class="led"></span>
+    <span class="led"></span>
+    <span class="led"></span>
+  </div>
+</div>
+
+
+<h1 class="note-display" style="padding: 1em; margin: 0; text-align: center;">???</h1>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-<script src="aubio.js"></script>
+<script src="audio.js"></script>
 <script src="tuner.js"></script>
 <script src="meter.js"></script>
-<script src="frequency-bars.js"></script>
 <script src="notes.js"></script>
 <script src="app.js"></script>
 </body>

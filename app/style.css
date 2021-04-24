@@ -24,6 +24,7 @@ body {
   text-align: center;
 }
 
+
 .note {
   font-size: 90px;
   font-weight: bold;
@@ -51,6 +52,10 @@ body {
 }
 
 .notes-list::-webkit-scrollbar {
+  display: none;
+}
+
+.note-display {
   display: none;
 }
 
@@ -83,6 +88,7 @@ body {
 }
 
 .meter {
+  display: none;
   position: fixed;
   left: 0;
   right: 0;
@@ -157,4 +163,176 @@ body {
 
 .a4 span {
   color: #e74c3c;
+}
+
+
+body {
+  background-image: url(img/light-off.svg);
+  background-position: center;
+  background-color: black;
+}
+
+.note-leds {
+  opacity: 0;
+  transition: 1s opacity ease-in-out;
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 98px; height: 62px;
+  margin-left: -49px;
+  margin-top: -49px;
+}
+.note-leds .led:nth-child(11n){
+  margin-right: 0;
+}
+.scale-leds {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 242px; height: 27px;
+  margin-left: -121px; margin-top: 50px;
+  opacity: 0;
+  transition: 1s opacity ease-in-out;
+}
+.scale-leds {
+  background-color: rgba(255,255,255,.05);
+}
+.scale-leds .middle .led {
+  opacity: .15;
+}
+.scale-leds .leds:last-child{
+  margin-right: 0;
+}
+.scale-leds .leds {
+  width: 8px; height: 8px;
+  margin: 0 1px 1px 0;
+  float: left;
+}
+.scale-leds .led {
+  opacity: .05;
+}
+.led {
+  transition: .25s all linear;
+  width: 8px; height: 8px;
+  margin: 0 1px 1px 0;
+  float: left;
+  opacity: 0;
+}
+
+.led.on,
+.leds.on .led {
+  background-image: radial-gradient(rgba(255,255,255,.7), rgba(255,255,255,0.00));
+  box-shadow: 0 0 6px 0px currentColor;
+  opacity: 1;
+}
+
+.led.on-25,
+.leds.on-25 .led {
+  background-image: radial-gradient(rgba(255,255,255,.7), rgba(255,255,255,0.00));
+  box-shadow: 0 0 6px 0px currentColor;
+  opacity: .25;
+}
+.led.on-50,
+.leds.on-50 .led {
+  background-image: radial-gradient(rgba(255,255,255,.7), rgba(255,255,255,0.00));
+  box-shadow: 0 0 6px 0px currentColor;
+  opacity: .5;
+}
+.led.on-75,
+.leds.on-75 .led {
+  background-image: radial-gradient(rgba(255,255,255,.7), rgba(255,255,255,0.00));
+  box-shadow: 0 0 6px 0px currentColor;
+  opacity: .75;
+}
+
+.led.half {
+  background-image: radial-gradient(rgba(255,255,255,.7), rgba(255,255,255,0.00));
+  opacity: .5;
+}
+.leds.green .led {
+  background-color: #00FF00;
+  color: #00FF00;
+}
+
+.led.red,
+.leds.red .led {
+  background-color: #FF0000;
+  color: #F00F00;
+}
+
+input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+
+label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 74px;
+	height: 36px;
+	background: black;
+	display: block;
+	border-radius: 100px;
+	position: absolute;
+  top: 50%; left: 50%;
+  z-index: 1000;
+  margin-left: -37px;
+  margin-top: -40px;
+  border: 2px solid white;
+  opacity: 1;
+  transition: .5s opacity linear;
+}
+
+label:before {
+  content: 'Off';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 0.8rem;
+  text-align: right;
+  text-transform: uppercase;
+  font-weight: bold;
+  opacity: 1;
+  transition: .25s opacity linear;
+}
+label:after {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 26px;
+	height: 26px;
+	background: #fff;
+	border-radius: 90px;
+	transition: 0.3s;
+  background-image: url(img/microphone.svg);
+  background-size: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+input:checked + label:before {
+	opacity: 0;
+}
+
+input:checked + label:after {
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+}
+
+label:active:after {
+	/* width: 40px; */
+}
+
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.mic-enabled .note-leds,
+.mic-enabled .scale-leds {
+  opacity: 1;
 }
